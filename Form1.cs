@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework.Forms;
 using Microsoft.Win32;
 
-namespace CompressH265 {
-    public partial class Form1 : Form {
+namespace CompressH265
+{
+    public partial class Form1 : MetroForm
+    {
 
         private bool isFromContextMenu = false;
         private bool installed = false;
@@ -128,11 +127,9 @@ namespace CompressH265 {
             
             // Converting
             process.StartInfo.FileName = "ffmpeg.exe";
-            process.StartInfo.Arguments = $" -i \"{inputFilename}\" -vcodec hevc -map_metadata 0 -vf yadif -crf 20 -preset medium {fpsParam} \"{outputFilename}\"";
+            process.StartInfo.Arguments = $" -i \"{inputFilename}\" -vcodec hevc_nvenc -map_metadata 0 -vf yadif -crf 20 -preset medium {fpsParam} \"{outputFilename}\"";
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.CreateNoWindow = true;
-
-            MessageBox.Show(process.StartInfo.Arguments);
             
             var rowID = nextTaskID++;
             var msgQueue = new Queue<string>();
@@ -238,18 +235,17 @@ namespace CompressH265 {
         }
         
         [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd,
-            uint Msg, int wParam, int lParam);
+        public static extern int SendMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
 
-// Make the button display the UAC shield.
+        // Make the button display the UAC shield.
         public static void AddShieldToButton(Button btn)
         {
             const Int32 BCM_SETSHIELD = 0x160C;
 
             // Give the button the flat style and make it
             // display the UAC shield.
-            btn.FlatStyle = System.Windows.Forms.FlatStyle.System;
             SendMessage(btn.Handle, BCM_SETSHIELD, 0, 1);
+
         }
 
 
