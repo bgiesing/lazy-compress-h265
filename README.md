@@ -1,13 +1,15 @@
 # Lazy Compress H.265 (HEVC)
 
+Fork that uses NVENC and modernizes the UI using [MetroFramework](https://github.com/dennismagno/metroframework-modern-ui). [All credits go to louislam for the original code!](https://github.com/louislam/lazy-compress-h265)
+
 Compress or convert your video files to h.265 (hevc) format with one-click, make its size much smaller!
 
-![image](https://github.com/louislam/lazy-compress-h265/blob/master/readme_images/2020-05-09_230722.png)
+![image](https://i.fiery.me/qcNe4.png)
 ![image](https://github.com/louislam/lazy-compress-h265/blob/master/readme_images/2020-05-09_225508.png)
 
 # Download
 
-https://github.com/louislam/lazy-compress-h265/releases
+https://github.com/bgiesing/lazy-compress-h265/releases
 
 # Features
 
